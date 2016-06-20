@@ -342,10 +342,12 @@ class: center, middle
 
 ---
 
-# The FlashR solution
+## The FlashR solution
+
+<br>
 
 .center[
-<iframe width="600" height="420" src="https://www.youtube.com/embed/1aVNRZtxeIU?rel=0" frameborder="0" allowfullscreen></iframe>
+<img src="images/FlashR-sol.png" alt="Drawing" style="width: 700px;"></iframe>
 ]
 
 
@@ -356,6 +358,17 @@ class: center, middle
 <br>
 
 .center[
+<img src="images/challenge1.png" alt="Drawing" style="width: 700px;"></iframe>
+]
+
+---
+
+### Challenge #1: achieve generality, efficiency and productivity together.
+
+<br>
+
+.center[
+<img src="images/challenge1-2.png" alt="Drawing" style="width: 700px;"></iframe>
 ]
 
 ---
@@ -364,12 +377,13 @@ class: center, middle
 
 <br>
 
-.left-pull[
+.pull-left[
 - Speed gap between CPU and RAM increases exponentially in the past decades.
 - Speed gap between RAM and SSDs remains large.
 ]
 
-.right-pull[
+.pull-right[
+<img src="images/mem-arch.png" alt="Drawing" style="width: 300px;"></iframe>
 ]
 
 ---
@@ -381,6 +395,10 @@ class: center, middle
 - Generalized matrix operations.
 - Vectorized functions to operate on matrix elements.
 
+.center[
+<img src="images/API.png" alt="Drawing" style="width: 400px;"></iframe>
+]
+
 ---
 
 ## R base package
@@ -388,6 +406,27 @@ class: center, middle
 <br>
 
 - FlashR provides implementations of many matrix functions in the R base package.
+
+.pull-left[
+R:
+- +, -, *, /, %*%, ==, !=, >, >=, <, <=
+- dim, nrow, ncol, length
+- sum, mean, min, max
+- abs, sqrt, ceiling, floor, round, log,
+- rowSums, colSums, rowMeans, colMeans
+]
+
+.pull-right[
+FlashR (Base API):
+- +, -, *, /, %*%, ==, !=, >, >=, <, <=
+- dim, nrow, ncol, length
+- sum, mean, min, max
+- abs, sqrt, ceiling, floor, round, log,
+- rowSums, colSums, rowMeans, colMeans
+
+FlashR (Advanced API):
+- fm.sum, fm.min, fm.max, fm.rowSums, fm.colSums
+]
 
 ---
 
@@ -442,13 +481,31 @@ kmeans.iter <- function(X, C){
 
 ### FlashR outperforms C/FORTRAN code in R with a single thread
 
+<br>
+
+.center[
+<img src="images/FlashR.vs.R.png" alt="Drawing" style="width: 700px;"></iframe>
+]
+
 ---
 
 ### FlashR outperforms Spark Mllib by almost an order of magnitude
 
+<br>
+
+.center[
+<img src="images/FlashR.vs.Spark.png" alt="Drawing" style="width: 700px;"></iframe>
+]
+
 ---
 
 ### EM execution of FlashR has little memory consumption
+
+<br>
+
+.center[
+<img src="images/FlashR.vs.Spark.mem.png" alt="Drawing" style="width: 700px;"></iframe>
+]
 
 ---
 
