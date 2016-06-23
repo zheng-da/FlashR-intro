@@ -285,7 +285,7 @@ name:opening
 <br>
 
 .center[
-Da Zheng, Joshua T. Vogelstein, Disa Mhembere, Carey E. Priebe, Randal Burns
+**Da Zheng**, Joshua T. Vogelstein, Disa Mhembere, Carey E. Priebe, Randal Burns
 <br>
 Johns Hopkins University
 <br>
@@ -297,10 +297,10 @@ Johns Hopkins University
 
 <br>
 
-- Productivity: high-level matrix-oriented programming interface.
-- Generality: express varieties of machine learning algorithms.
-- Computation efficiency: comparable to parallel C code.
+- Productivity: high-level programming interface to write data analysis algorithms easily.
+- Generality: express varieties of data analysis algorithms.
 - Scalability: process at least terabytes of data.
+- Computation efficiency: comparable to parallel C code.
 
 ---
 
@@ -313,8 +313,8 @@ Johns Hopkins University
   - Complex data analysis: statistics & machine learning
 
 - Statistics & machine learning
-  - High computation efficiency
   - High scalability
+  - High computation efficiency
   - High programming productivity
 
 ---
@@ -333,16 +333,19 @@ Johns Hopkins University
 
 ---
 
-class: center, middle
+class: middle
 
 .center[
-## Do we have to write parallel C/C++ code to achieve extreme efficiency and scalability?
+## An ideal solution:
+### Domain experts: focus on algorithm design and implementation in a familiar framework.
+### System programmers: focus on making the framework run faster.
 ]
+<!-- ## Do we have to write parallel C/C++ code to achieve extreme efficiency and scalability? -->
 
 
 ---
 
-## The FlashR solution
+## The FlashR realization
 
 <br>
 
@@ -405,12 +408,11 @@ class: center, middle
 
 <br>
 
-- FlashR provides implementations of many matrix functions in the R base package.
+- FlashR provides implementations of many matrix operations in the R base package with generalized matrix operations.
 
 .pull-left[
 R:
 - +, -, *, /, %*%, ==, !=, >, >=, <, <=
-- dim, nrow, ncol, length
 - sum, mean, min, max
 - abs, sqrt, ceiling, floor, round, log,
 - rowSums, colSums, rowMeans, colMeans
@@ -419,7 +421,6 @@ R:
 .pull-right[
 FlashR (Base API):
 - +, -, *, /, %*%, ==, !=, >, >=, <, <=
-- dim, nrow, ncol, length
 - sum, mean, min, max
 - abs, sqrt, ceiling, floor, round, log,
 - rowSums, colSums, rowMeans, colMeans
@@ -448,7 +449,7 @@ corr <- function(D) {
 
 ---
 
-## Parallelized k-means with 8 lines of R code
+## Parallelized k-means with 8 lines of FlashR code
 
 <br>
 
