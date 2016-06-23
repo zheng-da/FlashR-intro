@@ -376,13 +376,26 @@ class: middle
 
 ---
 
+## GenOps + VUDFs
+
+<br>
+
+- Generalized matrix operations (GenOps).
+- Vectorized functions (VUDFs) to operate on matrix elements.
+
+.center[
+<img src="images/API.png" alt="Drawing" style="width: 400px;"></iframe>
+]
+
+---
+
 ### Challenge #2: reduce data movement.
 
 <br>
 
 .pull-left[
-- Speed gap between CPU and RAM increases exponentially in the past decades.
-- Speed gap between RAM and SSDs remains large.
+- Speed gap between every pair of levels is large.
+- Speed gap continues increasing in the past decades.
 ]
 
 .pull-right[
@@ -391,15 +404,15 @@ class: middle
 
 ---
 
-## Main programming interface
+## Lazy evaluation + 2-level partitioning
 
 <br>
 
-- Generalized matrix operations.
-- Vectorized functions to operate on matrix elements.
-
-.center[
-<img src="images/API.png" alt="Drawing" style="width: 400px;"></iframe>
+.pull-left[
+<img src="images/DAG.png" alt="Drawing" style="width: 250px;"></iframe>
+]
+.pull-right[
+<img src="images/materialize.png" alt="Drawing" style="width: 180px;"></iframe>
 ]
 
 ---
@@ -467,19 +480,6 @@ kmeans.iter <- function(X, C){
 
 ---
 
-## Datasets for performance evaluation
-
-<br>
-
-- FlashR vs. R
-  - 65M samples and 32 features
-  - Under a mixture of Gaussian
-- FlashR vs. Spark Mllib
-  - 1B samples and 32 features
-  - Under a mixture of Gaussian
-
----
-
 ### FlashR outperforms C/FORTRAN code in R with a single thread
 
 <br>
@@ -487,6 +487,8 @@ kmeans.iter <- function(X, C){
 .center[
 <img src="images/FlashR.vs.R.png" alt="Drawing" style="width: 700px;"></iframe>
 ]
+
+Dataset: 65M samples and 32 features; under a mixture of Gaussian
 
 ---
 
@@ -498,6 +500,8 @@ kmeans.iter <- function(X, C){
 <img src="images/FlashR.vs.Spark.png" alt="Drawing" style="width: 700px;"></iframe>
 ]
 
+Dataset: 1B samples and 32 features; under a mixture of Gaussian
+
 ---
 
 ### EM execution of FlashR has little memory consumption
@@ -507,6 +511,8 @@ kmeans.iter <- function(X, C){
 .center[
 <img src="images/FlashR.vs.Spark.mem.png" alt="Drawing" style="width: 700px;"></iframe>
 ]
+
+Dataset: 1B samples and 32 features; under a mixture of Gaussian
 
 ---
 
@@ -593,7 +599,11 @@ var slideshow = remark.create({
   },
 
   // Enable or disable counting of incremental slides in the slide counting
-  countIncrementalSlides: false
+  countIncrementalSlides: false,
+
+  highlightLanguage: 'R',
+  highlightStyle: 'monokai',
+  highlightLines: true,
 }); 
 
     </script>
